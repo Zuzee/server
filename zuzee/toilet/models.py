@@ -1,7 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 from toilet.validators import validate_latitude, validate_longitude
 
 class Toilet(models.Model):
+    user = models.ForeignKey(User)
+
     RATING_CHOICES = ((1, 'Unhygenic'),
                       (2, 'Poor'),
                       (3, 'Decent'),
@@ -23,5 +26,4 @@ class Toilet(models.Model):
                         'for handicapped people?')
     notes = models.TextField(null=True, blank=True, help_text='Address,'
                              ' condition, timing.')
-    created_by = models.CharField(max_length=128, null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
