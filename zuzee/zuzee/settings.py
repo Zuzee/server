@@ -6,11 +6,12 @@ import sys
 BASE_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 BASE_URL = os.getenv('BASE_URL')
 
-DEBUG = True
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', ''))
 TEMPLATE_DEBUG = DEBUG
 
+
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Harshad Sharma', 'harshad@harshadsharma.com'),
 )
 
 MANAGERS = ADMINS

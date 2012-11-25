@@ -7,5 +7,5 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^add/$', AddView.as_view(), name='add')
+    url(r'^toilet/add/$', AddView.as_view(), name='add')
 )
