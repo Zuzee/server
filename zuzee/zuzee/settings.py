@@ -129,6 +129,7 @@ INSTALLED_APPS = (
     'gunicorn',
     'toilet',
     'south',
+    'tastypie',
 )
 
 # A sample logging configuration. The only tangible logging
