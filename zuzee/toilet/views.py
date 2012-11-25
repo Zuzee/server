@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView
 from django.http import HttpResponse
 from toilet.forms import ToiletForm
+import json
 
 class AddView(TemplateView):
     template_name = "toilet/add.html"
@@ -14,6 +15,6 @@ class AddView(TemplateView):
         if form.is_valid():
             form.save()
         else:
-            return self.render_to_response({'response':{'errors':form.errors}})
+            return self.render_to_response({'response':json.dumps({'errors':form.errors})})
         
-        return self.render_to_response({'response':{'success':'true'}})
+        return self.render_to_response({'response':json.dumps({'success':'true'})})
