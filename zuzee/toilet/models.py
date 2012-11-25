@@ -2,8 +2,8 @@ from django.db import models
 from toilet.validators import validate_latitude, validate_longitude
 
 class Toilet(models.Model):
-    RATING_CHOICES = ((1, 'Poor'),
-                      (2, 'Tolerable'),
+    RATING_CHOICES = ((1, 'Unhygenic'),
+                      (2, 'Poor'),
                       (3, 'Decent'),
                       (4, 'Good'),
                       (5, 'Excellent'),
