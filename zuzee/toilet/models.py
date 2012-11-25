@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from toilet.validators import validate_latitude, validate_longitude
 
+
 class Toilet(models.Model):
     user = models.ForeignKey(User)
 
@@ -26,4 +27,10 @@ class Toilet(models.Model):
                         'for handicapped people?')
     notes = models.TextField(null=True, blank=True, help_text='Address,'
                              ' condition, timing.')
+    created_on = models.DateTimeField(auto_now_add=True)
+
+
+class SessionToken(models.Model):
+    user = models.ForeignKey(User)
+    token = models.CharField(max_length=40, unique=True)
     created_on = models.DateTimeField(auto_now_add=True)
