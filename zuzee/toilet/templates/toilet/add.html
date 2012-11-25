@@ -1,0 +1,17 @@
+{%if form%}
+<!DOCTYPE html>
+<head>
+  <title>Zuzee</title>
+</head>
+<body>
+<h2>Zuzee</h2>
+<form method="POST" action=".">
+{%csrf_token%}
+{{form.as_p}}
+<button type="submit">Submit</submit>
+</form>
+</body>
+</html>
+{%else%}
+{{response}}
+{%endif%}
