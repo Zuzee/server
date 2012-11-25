@@ -1,0 +1,4 @@
+Zuzee
+=====
+
+This is a server for a public sanitation database. This stores locations, and optionally, some attributes of public toilets; and exposes an API to find the closest public toilet(s) to a given location.
