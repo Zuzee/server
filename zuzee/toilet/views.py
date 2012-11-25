@@ -14,7 +14,6 @@ class AddView(TemplateView):
                 'latitude':0,
                 'longitude':0,
                 })
-            #form._meta['created_by'].value = request.session['created_by']
         return self.render_to_response({'form':form})
 
     def post(self, request):
@@ -27,3 +26,4 @@ class AddView(TemplateView):
             return self.render_to_response({'response':json.dumps({'errors':form.errors})})
 
         return self.render_to_response({'response':json.dumps({'success':'true'})})
+
