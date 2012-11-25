@@ -6,7 +6,8 @@ import sys
 BASE_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 BASE_URL = os.getenv('BASE_URL')
 
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', ''))
+# Set DEBUG = True if an environment variable is not found or is set to False
+DEBUG = not (os.getenv('DEBUG') == 'False')
 TEMPLATE_DEBUG = DEBUG
 
 
@@ -127,6 +128,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'gunicorn',
     'toilet',
+    'south',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -158,6 +160,6 @@ LOGGING = {
     }
 }
 
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
-
+if not DEBUG:
+    import dj_database_url
+    DATABASES['default'] =  dj_database_url.config(default='sqlite:////' + os.path.dirname(BASE_PATH) + '/database.db3' )
